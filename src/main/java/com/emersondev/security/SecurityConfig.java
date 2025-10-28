@@ -54,6 +54,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth ->
                     auth.requestMatchers("/api/auth/**").permitAll()
+                            .requestMatchers("/api/roles/create").permitAll()  // Allow role creation without authentication
                             .requestMatchers("/api/books/**").permitAll()  // Allow book browsing without authentication
                             .requestMatchers("/api/categories/**").permitAll()
                             .requestMatchers("/api/docs/**").permitAll()
